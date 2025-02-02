@@ -1,0 +1,30 @@
+{
+  "name": "web_project_around_express",
+  "version": "1.0.0",
+  "description": "creacion de api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Whijlp/web_project_around_express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Whijlp/web_project_around_express/issues"
+  },
+  "homepage": "https://github.com/Whijlp/web_project_around_express#readme",
+  "devDependencies": {
+    "eslint": "^8.2.0"
+  },
+  "dependencies": {
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
+}
