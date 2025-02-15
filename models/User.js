@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const urlRegex = /^(https?:\/\/)(www\.)?[\w.-]+\.[a-z]{2,6}(\/[\w._~:/?%#[\]@!$&'()*+,;=-]*)?#?$/i;
 
 
