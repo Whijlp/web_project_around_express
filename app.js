@@ -18,18 +18,10 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use("/users", userRouter);
-app.use("/cards", cardRouter);
+app.use("/api", userRouter);
+//app.use("/cards", cardRouter);
 
-app.get("/users", (req, res) => {
-  user.find({})
-  .then((response) => {
-    res.send(response);
-  })
-  .catch((error) => {
-    res.status(400).send({ message: "Error al buscar usuarios",error });
-})
- })
+
 
 app.get("*", (req, res) => {
   res.status(404).send({ message: "Recurso solicitado no encontrado" });
