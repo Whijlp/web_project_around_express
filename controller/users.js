@@ -5,7 +5,7 @@ const findUsers = async (req, res) => {
     const users = await userModel.find();
     res.json(users);
   } catch (error) {
-    res.status(500).send({ message: "Error al buscar usuarios", error });
+    res.status(400).send({ message: "Error al buscar usuarios", error });
   }
 };
 
@@ -13,7 +13,7 @@ const getUser = async (req, res) => {
   try {
     const user = await userModel.findById(req.params.userId);
     if (!user)
-      return res.status(404).json({ message: "Usuario no encontrado" });
+      return res.status(400).json({ message: "Usuario no encontrado" });
     res.json(user);
   } catch (error) {
     res.status(404).send({ message: "Error al buscar usuario", error });
