@@ -20,7 +20,7 @@ const port = 3000;
 
 app.use((req, res, next) => {
   req.user = {
-    _id: '67b1044f532cda3d2efce06c' // pega el _id del usuario de prueba que creamos en el paso anterior
+    _id: '67b1044f532cda3d2efce06c' 
   };
 
   next();
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use("/api", userRouter);
-app.use("/cards", cardRouter);
+app.use("/api", cardRouter);
 
 
 

@@ -23,7 +23,7 @@ const getUser = async (req, res) => {
 const createUsers = async (req, res) => {
   try {
     const { name, about, avatar } = req.body;
-    const newUser =  new userModel({name, about, avatar});
+    const newUser = new userModel({ name, about, avatar });
     const saveUser = await newUser.save();
     return res.status(201).json(saveUser);
   } catch (error) {
@@ -31,4 +31,22 @@ const createUsers = async (req, res) => {
   }
 };
 
-module.exports = { findUsers, createUsers, getUser };
+const userMe = async (req, res) => {
+  const { name, about } = req.body;
+  const updateUser = await userModel.findByIdAndUpdate(req.user._id, {
+    name,
+    about,
+  });
+  res.send(updateUser);
+};
+
+
+const userAvatar = async (req, res) => {
+  const { avatar } = req.body;
+  const updateAvatar= await userModel.findByIdAndUpdate(req.user._id, {
+    avatar,
+  });
+  res.send(updateAvatar);
+};
+
+module.exports = { findUsers, createUsers, getUser, userMe, userAvatar };
