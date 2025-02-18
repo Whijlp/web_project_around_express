@@ -4,23 +4,23 @@ const userRouter = require("./routes/users");
 const cardRouter = require("./routes/cards");
 const mongoose = require("mongoose");
 const user = require("./models/User");
+require("dotenv").config();
 
-mongoose.connect("mongodb://0.0.0.0:27017/aroundb", {
+const DB_HOST = process.env.DB_HOST ;
 
-}).then(() => {
-  console.log("Coneccion exitosa");
-}).catch((error) => {
-  console.error("Error de coneccion", error);
-});
+const DB_NAME = process.env.DB_NAME ;
+mongoose.connect(`${DB_HOST}/${DB_NAME}`)
 
 
 
 const app = express();
-const port = 3000;
+
+const PORT = process.env.PORT;
+
 
 app.use((req, res, next) => {
   req.user = {
-    _id: '67b1044f532cda3d2efce06c' 
+    _id: '67b1044f532cda3d2efce06c'
   };
 
   next();
@@ -37,6 +37,6 @@ app.get("*", (req, res) => {
   res.status(404).send({ message: "Recurso solicitado no encontrado" });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });
